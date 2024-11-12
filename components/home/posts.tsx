@@ -1,11 +1,11 @@
 'use client';
 
-import useFetchPosts from '@/app/hooks/useFetchPosts';
 import PostCard from './post-card';
 import Spinner from '../common/spinner';
 import Pagination from '../common/pagination';
 import { useState } from 'react';
-import { PAGE_LIMIT } from '@/app/utils/constants';
+import useFetchPosts from '@/hooks/useFetchPosts';
+import { PAGE_LIMIT } from '@/utils/constants';
 
 export default function Posts() {
   const [currentPage, setCurrentPage] = useState(1);
@@ -35,7 +35,7 @@ export default function Posts() {
       <div className="mt-8 grid grid-cols-1 gap-4 sm:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4">
         {data?.posts.map((post) => <PostCard key={post.id} post={post} />)}
       </div>
-      <div className="mt-4">
+      <div className="mt-8">
         <Pagination
           currentPage={currentPage}
           changeCurrentPage={changeCurrentPage}
