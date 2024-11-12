@@ -1,4 +1,5 @@
 import Image from 'next/image';
+import Link from 'next/link';
 
 async function getPost(id: string) {
   const res = await fetch(`https://dummyjson.com/posts/${id}`);
@@ -26,7 +27,7 @@ export default async function PostPage({
 
   return (
     <div className="mx-auto mt-56 w-full rounded-lg border p-4 sm:w-[600px]">
-      <h2 className="text-center text-lg font-semibold text-gray-700">
+      <h2 className="text-center text-xl font-semibold text-gray-700">
         {title}
       </h2>
       <p className="mt-8 text-gray-500">{body}</p>
@@ -61,6 +62,13 @@ export default async function PostPage({
           </div>
         </div>
       </div>
+      <Link
+        href={`/post/${id}/comments`}
+        className="-mx-4 mt-4 flex cursor-pointer items-center gap-2 border-t px-4 pt-4 hover:text-blue-500"
+      >
+        <Image alt="comment" src="/icons/comment.svg" width={16} height={16} />
+        <span>Comments</span>
+      </Link>
     </div>
   );
 }

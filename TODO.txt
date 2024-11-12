@@ -1,3 +1,5 @@
 eslint 
 prettier
 remove logs
+list preserve page
+react-query as single source of truth even in server side
