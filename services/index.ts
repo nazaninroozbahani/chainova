@@ -12,3 +12,10 @@ export const getPosts = (params: PostsParams) => {
     params: { ...params, limit: PAGE_LIMIT },
   });
 };
+
+export const getComments = (id: string) => {
+  return axiosInstance({
+    method: 'get',
+    url: `/posts/${id}/comments`,
+  });
+};
