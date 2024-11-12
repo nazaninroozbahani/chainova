@@ -1,9 +1,9 @@
+import Posts from '@/components/home/posts';
 import {
   dehydrate,
   HydrationBoundary,
   QueryClient,
 } from '@tanstack/react-query';
-import Posts from './components/home/posts';
 
 export default async function Home() {
   const queryClient = new QueryClient();
@@ -12,6 +12,7 @@ export default async function Home() {
     queryKey: ['posts'],
     queryFn: async () => {
       const response = await fetch('https://dummyjson.com/posts');
+      console.log('nazi');
       return response.json();
     },
   });

@@ -1,4 +1,4 @@
-import { usePagination } from '@/app/hooks/usePagination';
+import { usePagination } from '@/hooks/usePagination';
 import Image from 'next/image';
 
 interface Props {

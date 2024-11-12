@@ -1,5 +1,6 @@
-import { Post } from '@/app/definitions';
+import { Post } from '@/definitions';
 import Image from 'next/image';
+import Link from 'next/link';
 
 interface Props {
   post: Post;
@@ -7,6 +8,7 @@ interface Props {
 
 export default function PostCard({
   post: {
+    id,
     title,
     reactions: { likes, dislikes },
     tags,
@@ -14,7 +16,10 @@ export default function PostCard({
   },
 }: Props) {
   return (
-    <div className="cursor-pointer rounded-lg border p-4 shadow-sm duration-150 hover:shadow-xl">
+    <Link
+      href={`/post/${id}`}
+      className="cursor-pointer rounded-lg border p-4 shadow-sm duration-150 hover:shadow-xl"
+    >
       <h2 className="text-center text-lg font-semibold text-gray-700">
         {title}
       </h2>
@@ -49,6 +54,6 @@ export default function PostCard({
           </div>
         </div>
       </div>
-    </div>
+    </Link>
   );
 }
